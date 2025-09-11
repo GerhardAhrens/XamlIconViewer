@@ -24,6 +24,12 @@
                 return;
             }
 
+            if (inContent.Contains("<Path.Fill>") == true)
+            {
+                MessageBox.Show("ViewBox mit '<Path.Fill>' können nicht konvertiert werden!", "VieBox konvertieren",MessageBoxButton.OK,MessageBoxImage.Warning);
+                return;
+            }
+
             StringBuilder outXaml = new StringBuilder();
             outXaml.AppendLine("<ResourceDictionary xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\" xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\">");
             outXaml.AppendLine(CultureInfo.CurrentCulture,$"\t<DrawingImage x:Key=\"{keyName}\">");
