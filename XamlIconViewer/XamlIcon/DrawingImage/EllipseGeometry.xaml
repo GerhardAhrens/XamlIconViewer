@@ -1,0 +1,14 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DrawingImage x:Key="MyDrawingImage">
+        <DrawingImage.Drawing>
+            <GeometryDrawing Brush="Blue">
+                <GeometryDrawing.Geometry>
+                    <EllipseGeometry
+                        Center="50,50"
+                        RadiusX="50"
+                        RadiusY="50" />
+                </GeometryDrawing.Geometry>
+            </GeometryDrawing>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+</ResourceDictionary>

@@ -1,0 +1,261 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <ApplicationIcon>Resources\Picture\ApplicationIcon.ico</ApplicationIcon>
+    <AssemblyVersion>1.1.2025.5</AssemblyVersion>
+    <FileVersion>1.1.2025.5</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="_Doc\**" />
+    <EmbeddedResource Remove="_Doc\**" />
+    <None Remove="_Doc\**" />
+    <Page Remove="_Doc\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="XamlIcon\SVG\api-interface-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\availability-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\bookshelf-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\boy-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\business-card-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\calculator-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\cha-rect-swear-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\clock-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\com-keyboard-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\com-laptop-code-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\com-mac-old-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\CPU.svg" />
+    <None Remove="XamlIcon\SVG\db-copy-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\db-network-2-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\db-table-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\db-tables-swap-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\delete-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\girl-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\Grim Reaper.svg" />
+    <None Remove="XamlIcon\SVG\insert-table-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\insert-word-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\monitor-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\notebook-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\office-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\pen-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\pencil-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\printer-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\report-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\shop-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\telephone-svgrepo-com.svg" />
+    <None Remove="XamlIcon\SVG\writing-board-svgrepo-com.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="XamlIcon\Canvas\appbar.3d.3ds.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.app.favorite.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.app.minus.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.app.remove.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.app.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.arrow.collapsed.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.arrow.corner.up.right.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.arrow.down.up.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.arrow.down.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.arrow.expand.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.arrow.left.right.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.arrow.left.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.arrow.right.left.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.arrow.right.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.arrow.up.down.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.arrow.up.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.book.contact.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.book.hardcover.open.writing.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.book.hardcover.open.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.book.list.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.book.open.information.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.book.open.text.image.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.book.open.text.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.book.open.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.book.perspective.help.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.book.perspective.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.book.side.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.book.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.border.all.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.border.bottom.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.border.horizontal.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.border.inner.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.border.left.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.border.none.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.border.outside.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.border.right.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.border.top.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.border.vertical.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.box.layered.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.box.unfolded.xaml" />
+    <Page Remove="XamlIcon\Canvas\appbar.box.xaml" />
+    <Page Remove="XamlIcon\DrawingImage\EllipseGeometry.xaml" />
+    <Page Remove="XamlIcon\DrawingImage\IconAddEffort.xaml" />
+    <Page Remove="XamlIcon\DrawingImage\IconApplicationExit.xaml" />
+    <Page Remove="XamlIcon\DrawingImage\IconNumber.xaml" />
+    <Page Remove="XamlIcon\DrawingImage\Ok_DrawingImage.xaml" />
+    <Page Remove="XamlIcon\PathGeometry\IconAttachment.xaml" />
+    <Page Remove="XamlIcon\PathGeometry\IconRecordDelete.xaml" />
+    <Page Remove="XamlIcon\PathGeometry\IconSelection.xaml" />
+    <Page Remove="XamlIcon\PathGeometry\IconSettings.xaml" />
+    <Page Remove="XamlIcon\Viewbox\Business_man_32.xaml" />
+    <Page Remove="XamlIcon\Viewbox\Cancel_32.xaml" />
+    <Page Remove="XamlIcon\Viewbox\Column_left_32.xaml" />
+    <Page Remove="XamlIcon\Viewbox\Customers_32.xaml" />
+    <Page Remove="XamlIcon\Viewbox\List_bullets_32.xaml" />
+    <Page Remove="XamlIcon\Viewbox\Ok_32.xaml" />
+    <Page Remove="XamlIcon\Viewbox\Recipients_list_32.xaml" />
+    <Page Remove="XamlIcon\Viewbox\Save_32.xaml" />
+    <Page Remove="XamlIcon\Viewbox\T-Account numbers_32.xaml" />
+    <Page Remove="XamlIcon\Viewbox\Users_32.xaml" />
+    <Page Remove="XamlIcon\Viewbox\User_32.xaml" />
+    <Page Remove="XamlIcon\Viewbox\User_profile_32.xaml" />
+    <Page Remove="XamlIcon\Viewbox\View_100_percent_32.xaml" />
+    <Page Remove="XamlIcon\Viewbox\View_page_outline_32.xaml" />
+    <Page Remove="XamlIcon\Viewbox\Write_32.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Picture\ApplicationIcon.ico" />
+    <Content Include="XamlIcon\Canvas\appbar.app.favorite.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.app.minus.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.app.remove.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.app.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.arrow.collapsed.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.arrow.corner.up.right.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.arrow.down.up.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.arrow.down.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.arrow.expand.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.arrow.left.right.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.arrow.left.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.arrow.right.left.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.arrow.right.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.arrow.up.down.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.arrow.up.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.book.contact.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.book.hardcover.open.writing.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.book.hardcover.open.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.book.list.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.book.open.information.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.book.open.text.image.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.book.open.text.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.book.open.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.book.perspective.help.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.book.perspective.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.book.side.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.book.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.border.all.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.border.bottom.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.border.horizontal.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.border.inner.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.border.left.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.border.none.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.border.outside.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.border.right.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.border.top.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.border.vertical.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.box.layered.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.box.unfolded.xaml" />
+    <Content Include="XamlIcon\Canvas\appbar.box.xaml" />
+    <Content Include="XamlIcon\DrawingImage\IconAddEffort.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Content>
+    <Content Include="XamlIcon\DrawingImage\IconNumber.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Content>
+    <Content Include="XamlIcon\DrawingImage\Ok_DrawingImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Content>
+    <Content Include="XamlIcon\DrawingImage\IconApplicationExit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Content>
+    <Content Include="XamlIcon\DrawingImage\EllipseGeometry.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Content>
+    <Content Include="XamlIcon\PathGeometry\IconSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Content>
+    <Content Include="XamlIcon\PathGeometry\IconRecordDelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Content>
+    <Content Include="XamlIcon\PathGeometry\IconSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Content>
+    <Content Include="XamlIcon\PathGeometry\IconAttachment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Content>
+    <Content Include="XamlIcon\SVG\api-interface-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\availability-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\bookshelf-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\boy-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\business-card-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\calculator-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\cha-rect-swear-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\clock-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\com-keyboard-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\com-laptop-code-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\com-mac-old-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\CPU.svg" />
+    <Content Include="XamlIcon\SVG\db-copy-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\db-network-2-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\db-table-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\db-tables-swap-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\delete-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\girl-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\Grim Reaper.svg" />
+    <Content Include="XamlIcon\SVG\insert-table-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\insert-word-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\monitor-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\notebook-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\office-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\pen-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\pencil-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\printer-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\report-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\shop-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\telephone-svgrepo-com.svg" />
+    <Content Include="XamlIcon\SVG\writing-board-svgrepo-com.svg" />
+    <Content Include="XamlIcon\Viewbox\Business_man_32.xaml" />
+    <Content Include="XamlIcon\Viewbox\Cancel_32.xaml" />
+    <Content Include="XamlIcon\Viewbox\Column_left_32.xaml" />
+    <Content Include="XamlIcon\Viewbox\Customers_32.xaml" />
+    <Content Include="XamlIcon\Viewbox\List_bullets_32.xaml" />
+    <Content Include="XamlIcon\Viewbox\Ok_32.xaml" />
+    <Content Include="XamlIcon\Viewbox\Recipients_list_32.xaml" />
+    <Content Include="XamlIcon\Viewbox\Save_32.xaml" />
+    <Content Include="XamlIcon\Viewbox\T-Account numbers_32.xaml" />
+    <Content Include="XamlIcon\Viewbox\Users_32.xaml" />
+    <Content Include="XamlIcon\Viewbox\User_32.xaml" />
+    <Content Include="XamlIcon\Viewbox\User_profile_32.xaml" />
+    <Content Include="XamlIcon\Viewbox\View_100_percent_32.xaml" />
+    <Content Include="XamlIcon\Viewbox\View_page_outline_32.xaml" />
+    <Content Include="XamlIcon\Viewbox\Write_32.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Picture\ApplicationIcon.ico" />
+    <Resource Include="Resources\Picture\ApplicationIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extension\" />
+    <Folder Include="SvgToXaml\" />
+    <Folder Include="Resources\Style\" />
+  </ItemGroup>
+
+</Project>
