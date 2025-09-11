@@ -1,0 +1,18 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DrawingImage x:Key="Admin_32">
+        <DrawingImage.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Geometry="F1M126.005,101.869L90.483,195.096 54.962,101.869C22.647,109.065,0,127.059,0,156.668L0,222.703 180.967,222.703 180.967,156.668C180.967,127.06,158.32,109.066,126.005,101.869z" Pen="{x:Null}" >
+                        <GeometryDrawing.Brush>
+                        <LinearGradientBrush>
+                            <GradientStop Offset="0.0" Color="PaleVioletRed" />
+                            <GradientStop Offset="1.0" Color="Purple" />
+                        </LinearGradientBrush>
+                        </GeometryDrawing.Brush>
+                    </GeometryDrawing>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+</ResourceDictionary>

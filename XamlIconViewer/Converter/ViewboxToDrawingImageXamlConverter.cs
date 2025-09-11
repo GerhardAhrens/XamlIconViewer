@@ -15,13 +15,28 @@
     {
         public static void CreateDrawingImageXamlFromViewboxXaml(string xamlFileIn, string xamlFileOut)
         {
+            bool isPathFill = false;
             string keyName = System.IO.Path.GetFileNameWithoutExtension(xamlFileIn);
             string inContent = System.IO.File.ReadAllText(xamlFileIn);
 
-            IEnumerable<string> pathSource = inContent.ExtractFromString("<Path"," />");
-            if (pathSource == null)
+            IEnumerable<string> pathSource = null;
+            if (inContent.Contains("<Path.Fill>") == true)
             {
-                return;
+                pathSource = inContent.ExtractFromString("<Path", ">");
+                if (pathSource == null)
+                {
+                    return;
+                }
+
+                isPathFill = true;
+            }
+            else
+            {
+                pathSource = inContent.ExtractFromString("<Path", " />");
+                if (pathSource == null)
+                {
+                    return;
+                }
             }
 
             if (inContent.Contains("<Path.Fill>") == true)
@@ -38,8 +53,18 @@
             outXaml.AppendLine("\t\t\t\t<DrawingGroup.Children>");
             foreach (string pathText in pathSource)
             {
-                string geometryDrawing = pathText.Replace("Fill", "Brush").Replace("Data", "Geometry");
-                outXaml.AppendLine(CultureInfo.CurrentCulture,$"<GeometryDrawing\r\n{geometryDrawing}\r\nPen=\"{{x:Null}}\" />");
+                if (isPathFill == false)
+                {
+                    string geometryDrawing = pathText.Replace("Fill", "Brush").Replace("Data", "Geometry");
+                    outXaml.AppendLine(CultureInfo.CurrentCulture, $"<GeometryDrawing\r\n{geometryDrawing}\r\nPen=\"{{x:Null}}\" />");
+                }
+                else
+                {
+                    string geometryDrawing = pathText.Replace("Data", "Geometry");
+                    outXaml.AppendLine(CultureInfo.CurrentCulture, $"\t\t\t\t\t<GeometryDrawing\r\n{geometryDrawing}>");
+                    /* https://www.c-sharpcorner.com/UploadFile/mahakgupta/how-to-use-a-drawing-as-an-image-source-in-wpf/ */
+                    outXaml.AppendLine(CultureInfo.CurrentCulture, $"\t\t\t\t\t</GeometryDrawing>");
+                }
             }
 
             outXaml.AppendLine("\t\t\t\t</DrawingGroup.Children>");
