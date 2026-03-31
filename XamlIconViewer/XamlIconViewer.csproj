@@ -9,8 +9,8 @@
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <AnalysisLevel>latest-recommended</AnalysisLevel>
     <ApplicationIcon>Resources\Picture\ApplicationIcon.ico</ApplicationIcon>
-    <AssemblyVersion>1.1.2025.5</AssemblyVersion>
-    <FileVersion>1.1.2025.5</FileVersion>
+    <AssemblyVersion>1.1.2026.6</AssemblyVersion>
+    <FileVersion>1.1.2026.6</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -255,7 +255,6 @@
   <ItemGroup>
     <Folder Include="Extension\" />
     <Folder Include="SvgToXaml\" />
-    <Folder Include="Resources\Style\" />
   </ItemGroup>
 
 </Project>

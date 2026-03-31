@@ -44,6 +44,9 @@ namespace XamlIconViewer
             this.InitializeComponent();
             WeakEventManager<Window, RoutedEventArgs>.AddHandler(this, "Loaded", this.OnLoaded);
 
+            DrawingImage icon = (DrawingImage)FindResource("AppIcon2");
+            WpfIconHelper.ApplyIcon(this, icon, 32);
+
             this.WindowTitel = "Xaml Icon Viewer";
             this.DataContext = this;
         }
@@ -674,5 +677,50 @@ namespace XamlIconViewer
             handler(this, e);
         }
         #endregion INotifyPropertyChanged implementierung
+    }
+
+    public static class WpfIconHelper
+    {
+        public static ImageSource CreateIcon(DrawingImage drawingImage, int size = 64, double dpi = 96)
+        {
+            if (size.In(32,64) == false)
+            {
+                throw new ArgumentOutOfRangeException(nameof(size), "Der Wert für die Icon Größe muß 32 oder 64 Pixel sein.");
+            }
+
+            DrawingVisual visual = new DrawingVisual();
+
+            using (var dc = visual.RenderOpen())
+            {
+                dc.DrawImage(drawingImage, new Rect(0, 0, size, size));
+            }
+
+            RenderTargetBitmap bitmap = new RenderTargetBitmap(size, size, dpi, dpi, PixelFormats.Pbgra32);
+            bitmap.Render(visual);
+            bitmap.Freeze(); // Performance + Thread-Safety
+
+            return bitmap;
+        }
+
+        public static void ApplyIcon(Window window, DrawingImage drawingImage, int size = 64)
+        {
+            window.Icon = CreateIcon(drawingImage, size);
+        }
+    }
+
+    public static class IntegerExtensions
+    {
+        // Die 'this'-Anweisung vor 'int value' definiert den Typ, der erweitert wird
+        public static bool In(this int value, params int[] allowedValues)
+        {
+            // Prüft, ob 'value' in der Menge 'allowedValues' enthalten ist
+            return allowedValues.Contains(value);
+        }
+
+        public static bool NotIn(this int value, params int[] allowedValues)
+        {
+            // Prüft, ob 'value' in der Menge 'allowedValues' nicht enthalten ist
+            return !allowedValues.Contains(value);
+        }
     }
 }
