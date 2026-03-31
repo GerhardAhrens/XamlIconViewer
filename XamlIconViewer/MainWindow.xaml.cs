@@ -44,8 +44,12 @@ namespace XamlIconViewer
             this.InitializeComponent();
             WeakEventManager<Window, RoutedEventArgs>.AddHandler(this, "Loaded", this.OnLoaded);
 
-            DrawingImage icon = (DrawingImage)FindResource("AppIcon2");
+            /*
+            DrawingImage icon = (DrawingImage)this.TryFindResource("AppIcon2");
             WpfIconHelper.ApplyIcon(this, icon, 32);
+            */
+
+            this.SetVectorIcon("AppIcon2",64);
 
             this.WindowTitel = "Xaml Icon Viewer";
             this.DataContext = this;
@@ -721,6 +725,27 @@ namespace XamlIconViewer
         {
             // Prüft, ob 'value' in der Menge 'allowedValues' nicht enthalten ist
             return !allowedValues.Contains(value);
+        }
+    }
+
+    public static class WindowExtensions
+    {
+        public static void SetVectorIcon(this Window window, string resourceKey, int size = 64)
+        {
+            if (size.In(32, 64) == false)
+            {
+                throw new ArgumentOutOfRangeException(nameof(size), "Der Wert für die Icon Größe muß 32 oder 64 Pixel sein.");
+            }
+
+            DrawingImage drawing = (DrawingImage)window.TryFindResource(resourceKey);
+            if (drawing != null)
+            {
+                window.Icon = WpfIconHelper.CreateIcon(drawing, size);
+            }
+            else
+            {
+                throw new ArgumentException($"Die Ressource mit dem Schlüssel '{resourceKey}' wurde nicht gefunden oder ist kein DrawingImage.", nameof(resourceKey));
+            }
         }
     }
 }
