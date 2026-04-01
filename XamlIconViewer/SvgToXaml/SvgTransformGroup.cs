@@ -4,7 +4,7 @@ namespace XamlIconViewer.SVG
     using System.Collections.Generic;
     using System.Windows.Media;
 
-    class SvgTransformGroup : SvgTransform
+    sealed class SvgTransformGroup : SvgTransform
     {
         public readonly List<SvgTransform> Transforms = new List<SvgTransform>();
 

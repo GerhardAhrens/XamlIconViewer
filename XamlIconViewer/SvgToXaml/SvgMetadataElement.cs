@@ -6,7 +6,7 @@ namespace XamlIconViewer.SVG
     /// <summary>
     ///   Represents a &lt;metadata&gt; element.
     /// </summary>
-    internal class SvgMetadataElement : SvgBaseElement
+    internal sealed class SvgMetadataElement : SvgBaseElement
     {
         public SvgMetadataElement(SvgDocument document, SvgBaseElement parent, XElement metadataElement)
           : base(document, parent, metadataElement)

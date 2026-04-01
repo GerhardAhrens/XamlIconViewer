@@ -1,8 +1,8 @@
-﻿
-namespace XamlIconViewer.SVG
+﻿namespace XamlIconViewer.SVG
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
     using System.Windows.Media;
     using System.Xml.Linq;
@@ -12,7 +12,7 @@ namespace XamlIconViewer.SVG
         public readonly List<SvgStopElement> Stops = new List<SvgStopElement>();
         public readonly SvgGradientUnits GradientUnits = SvgGradientUnits.ObjectBoundingBox;
         public readonly SvgSpreadMethod SpreadMethod = SvgSpreadMethod.Pad;
-        public readonly SvgTransform Transform = null;
+        public readonly SvgTransform Transform;
 
         public SvgGradientBaseElement(SvgDocument document, SvgBaseElement parent, XElement gradientElement)
           : base(document, parent, gradientElement)
@@ -31,7 +31,7 @@ namespace XamlIconViewer.SVG
                         break;
 
                     default:
-                        throw new NotImplementedException(String.Format("gradientUnits value '{0}' is no supported", gradient_units_attribute.Value));
+                        throw new NotImplementedException(string.Format(CultureInfo.CurrentCulture, "gradientUnits value '{0}' is no supported", gradient_units_attribute.Value));
                 }
 
             XAttribute gradient_transform_attribute = gradientElement.Attribute("gradientTransform");
@@ -67,7 +67,7 @@ namespace XamlIconViewer.SVG
                         break;
 
                     default:
-                        throw new NotImplementedException(String.Format("Unhandled element: {0}", element));
+                        throw new NotImplementedException(string.Format(CultureInfo.CurrentCulture, "Unhandled element: {0}", element));
                 }
         }
 
@@ -116,13 +116,19 @@ namespace XamlIconViewer.SVG
 
             if (Reference != null)
             {
-                if (!Document.Elements.ContainsKey(Reference))
-                    return null;
 
-                SvgGradientBaseElement reference = Document.Elements[Reference] as SvgGradientBaseElement;
-                if (reference == null)
+                if (!Document.Elements.TryGetValue(Reference, out SvgBaseElement referencedBase))
+                {
+                    return null;
+                }
+
+                var referenceGradient = referencedBase as SvgGradientBaseElement;
+                if (referenceGradient == null)
+                {
                     throw new NotImplementedException();
-                reference.SetBrush(brush);
+                }
+
+                referenceGradient.SetBrush(brush);
             }
             return SetBrush(brush);
         }

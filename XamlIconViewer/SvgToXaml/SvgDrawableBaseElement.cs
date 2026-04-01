@@ -128,7 +128,7 @@ namespace XamlIconViewer.SVG
                 if (stroke_dasharray_attribute.Value == "none")
                     StrokeDasharray = null;
                 else if (stroke_dasharray_attribute.Value == "inherit")
-                    StrokeDasharray = new SvgLength[0];
+                    StrokeDasharray = [];
                 else
                 {
                     List<SvgLength> lengths = new List<SvgLength>();
@@ -314,7 +314,7 @@ namespace XamlIconViewer.SVG
                 switch (element.Name.LocalName)
                 {
                     default:
-                        throw new NotImplementedException(string.Format("Unhandled element: {0}", element));
+                        throw new NotImplementedException(string.Format(CultureInfo.CurrentCulture,"Unhandled element: {0}", element));
                 }
         }
 
@@ -343,7 +343,6 @@ namespace XamlIconViewer.SVG
             return geometry;
         }
 
-        //==========================================================================
         public Pen GetPen()
         {
             if (Stroke == null)
@@ -360,7 +359,6 @@ namespace XamlIconViewer.SVG
             return pen;
         }
 
-        //==========================================================================
         public Brush GetBrush()
         {
             if (Fill == null)
@@ -374,7 +372,6 @@ namespace XamlIconViewer.SVG
             return brush;
         }
 
-        //==========================================================================
         public virtual Drawing GetBaseDrawing()
         {
             Geometry geometry = GetGeometry();
@@ -411,7 +408,6 @@ namespace XamlIconViewer.SVG
             return geometry_drawing;
         }
 
-        //==========================================================================
         public virtual Drawing Draw()
         {
             Drawing drawing = GetBaseDrawing();
@@ -420,9 +416,9 @@ namespace XamlIconViewer.SVG
 
             BitmapEffect bitmap_effect = null;
             if (Filter != null)
-                if (Document.Elements.ContainsKey(Filter))
+                if (Document.Elements.TryGetValue(Filter, out SvgBaseElement value))
                 {
-                    SvgFilterElement filter_element = Document.Elements[Filter] as SvgFilterElement;
+                    SvgFilterElement filter_element = value as SvgFilterElement;
                     if (filter_element != null)
                         bitmap_effect = filter_element.ToBitmapEffect();
                 }

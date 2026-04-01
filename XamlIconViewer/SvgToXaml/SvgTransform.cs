@@ -1,8 +1,8 @@
-﻿
-namespace XamlIconViewer.SVG
+﻿namespace XamlIconViewer.SVG
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Windows.Media;
 
     internal abstract class SvgTransform
@@ -11,12 +11,11 @@ namespace XamlIconViewer.SVG
 
         public static SvgTransform Parse(string value)
         {
-            if (value == null)
-                throw new ArgumentNullException("value");
+            ArgumentNullException.ThrowIfNull(value);
 
             value = value.Trim();
             if (value == "")
-                throw new ArgumentException("value must not be empty", "value");
+                throw new ArgumentException("value must not be empty", nameof(value));
 
             List<SvgTransform> transforms = new List<SvgTransform>();
 
@@ -24,13 +23,13 @@ namespace XamlIconViewer.SVG
             while (transform.Length > 0)
             {
 
-                if (transform.StartsWith("translate"))
+                if (transform.StartsWith("translate", StringComparison.CurrentCulture))
                 {
                     transform = transform.Substring(9).TrimStart();
-                    if (transform.StartsWith("("))
+                    if (transform.StartsWith("(",StringComparison.CurrentCulture))
                     {
                         transform = transform.Substring(1);
-                        int index = transform.IndexOf(")");
+                        int index = transform.IndexOf(')');
                         if (index >= 0)
                         {
                             transforms.Add(SvgTranslateTransform.Parse(transform.Substring(0, index).Trim()));
@@ -40,13 +39,13 @@ namespace XamlIconViewer.SVG
                     }
                 }
 
-                if (transform.StartsWith("matrix"))
+                if (transform.StartsWith("matrix", StringComparison.CurrentCulture))
                 {
                     transform = transform.Substring(6).TrimStart();
-                    if (transform.StartsWith("("))
+                    if (transform.StartsWith("(", StringComparison.CurrentCulture))
                     {
                         transform = transform.Substring(1);
-                        int index = transform.IndexOf(")");
+                        int index = transform.IndexOf(')');
                         if (index >= 0)
                         {
                             transforms.Add(SvgMatrixTransform.Parse(transform.Substring(0, index).Trim()));
@@ -56,13 +55,13 @@ namespace XamlIconViewer.SVG
                     }
                 }
 
-                if (transform.StartsWith("scale"))
+                if (transform.StartsWith("scale", StringComparison.CurrentCulture))
                 {
                     transform = transform.Substring(5).TrimStart();
-                    if (transform.StartsWith("("))
+                    if (transform.StartsWith("(", StringComparison.CurrentCulture))
                     {
                         transform = transform.Substring(1);
-                        int index = transform.IndexOf(")");
+                        int index = transform.IndexOf(')');
                         if (index >= 0)
                         {
                             transforms.Add(SvgScaleTransform.Parse(transform.Substring(0, index).Trim()));
@@ -72,13 +71,13 @@ namespace XamlIconViewer.SVG
                     }
                 }
 
-                if (transform.StartsWith("skew"))
+                if (transform.StartsWith("skew", StringComparison.CurrentCulture))
                 {
                     transform = transform.Substring(5).TrimStart();
-                    if (transform.StartsWith("("))
+                    if (transform.StartsWith("(", StringComparison.CurrentCulture))
                     {
                         transform = transform.Substring(1);
-                        int index = transform.IndexOf(")");
+                        int index = transform.IndexOf(')');
                         if (index >= 0)
                         {
                             transforms.Add(SvgSkewTransform.Parse(transform.Substring(0, index).Trim()));
@@ -88,13 +87,13 @@ namespace XamlIconViewer.SVG
                     }
                 }
 
-                if (transform.StartsWith("rotate"))
+                if (transform.StartsWith("rotate", StringComparison.CurrentCulture))
                 {
                     transform = transform.Substring(6).TrimStart();
-                    if (transform.StartsWith("("))
+                    if (transform.StartsWith("(", StringComparison.CurrentCulture))
                     {
                         transform = transform.Substring(1);
-                        int index = transform.IndexOf(")");
+                        int index = transform.IndexOf(')');
                         if (index >= 0)
                         {
                             transforms.Add(SvgScaleTransform.Parse(transform.Substring(0, index).Trim()));
@@ -111,7 +110,7 @@ namespace XamlIconViewer.SVG
             else if (transforms.Count > 1)
                 return new SvgTransformGroup(transforms.ToArray());
 
-            throw new ArgumentException(String.Format("Unsupported transform value: {0}", value));
+            throw new ArgumentException(string.Format(CultureInfo.CurrentCulture,"Unsupported transform value: {0}", value));
         }
     }
 }

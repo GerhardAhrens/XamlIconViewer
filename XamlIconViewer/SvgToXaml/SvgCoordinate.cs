@@ -3,7 +3,7 @@
     /// <summary>
     ///   A coordinate.
     /// </summary>
-    internal class SvgCoordinate : SvgLength
+    internal sealed class SvgCoordinate : SvgLength
     {
 
         public SvgCoordinate(double value) : base(value)

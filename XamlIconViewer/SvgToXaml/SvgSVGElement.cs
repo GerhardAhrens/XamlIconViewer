@@ -6,7 +6,7 @@ namespace XamlIconViewer.SVG
     /// <summary>
     ///   Represents an &lt;svg&gt; element.
     /// </summary>
-    internal class SvgSVGElement : SvgDrawableContainerBaseElement
+    internal sealed class SvgSVGElement : SvgDrawableContainerBaseElement
     {
         public SvgSVGElement(SvgDocument document, SvgBaseElement parent, XElement svgElement)
           : base(document, parent, svgElement)

@@ -7,10 +7,10 @@ namespace XamlIconViewer.SVG
     ///   Defines a set of options to customize rendering repspectively reading 
     ///   of SVG documents.
     /// </summary>
-    public class SvgReaderOptions
+    public sealed class SvgReaderOptions
     {
 
-        private bool m_IgnoreEffects = false;
+        private bool m_IgnoreEffects;
 
         /// <summary>
         ///   Initializes a new <see cref="SvgReaderOptions"/> instance.

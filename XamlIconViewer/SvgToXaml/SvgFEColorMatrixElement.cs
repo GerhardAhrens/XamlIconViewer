@@ -7,7 +7,7 @@
     /// <summary>
     ///   Represents an &lt;feColorMatrix&gt; element.
     /// </summary>
-    internal class SvgFEColorMatrixElement : SvgFilterEffectBaseElement
+    internal sealed class SvgFEColorMatrixElement : SvgFilterEffectBaseElement
     {
 
         public SvgFEColorMatrixElement(SvgDocument document, SvgBaseElement parent, XElement feColorMatrixElement)

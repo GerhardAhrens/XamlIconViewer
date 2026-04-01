@@ -7,7 +7,7 @@ namespace XamlIconViewer.SVG
     /// <summary>
     ///   Represents a &lt;path&gt; element.
     /// </summary>
-    internal class SvgPathElement : SvgDrawableBaseElement
+    internal sealed class SvgPathElement : SvgDrawableBaseElement
     {
         public readonly string Data;
 

@@ -7,7 +7,7 @@ namespace XamlIconViewer.SVG
     using System.Windows.Media;
     using System.Xml.Linq;
 
-    internal class SvgPolylineElement : SvgDrawableBaseElement
+    internal sealed class SvgPolylineElement : SvgDrawableBaseElement
     {
         public readonly List<SvgPoint> Points = new List<SvgPoint>();
 

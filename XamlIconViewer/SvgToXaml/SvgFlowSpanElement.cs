@@ -6,7 +6,7 @@ namespace XamlIconViewer.SVG
     /// <summary>
     ///   Represents a &lt;flowSpan&gt; element.
     /// </summary>
-    internal class SvgFlowSpanElement : SvgDrawableContainerBaseElement
+    internal sealed class SvgFlowSpanElement : SvgDrawableContainerBaseElement
     {
 
         public SvgFlowSpanElement(SvgDocument document, SvgBaseElement parent, XElement flowSpanElement)

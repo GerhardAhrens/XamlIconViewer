@@ -7,7 +7,7 @@
     /// <summary>
     ///   Represents an &lt;ellipse&gt; element.
     /// </summary>
-    internal class SvgEllipseElement : SvgDrawableBaseElement
+    internal sealed class SvgEllipseElement : SvgDrawableBaseElement
     {
         public readonly SvgCoordinate CenterX = new SvgCoordinate(0.0);
         public readonly SvgCoordinate CenterY = new SvgCoordinate(0.0);

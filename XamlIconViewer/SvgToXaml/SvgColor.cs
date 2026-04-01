@@ -8,7 +8,7 @@ namespace XamlIconViewer.SVG
     /// <summary>
     ///   Represents an RGB color.
     /// </summary>
-    internal class SvgColor
+    internal sealed class SvgColor
     {
         public readonly float Red;
         public readonly float Green;
@@ -40,22 +40,22 @@ namespace XamlIconViewer.SVG
                 string color = value.Substring(1).Trim();
                 if (color.Length == 3)
                 {
-                    float r = (float)(byte.Parse(string.Format("{0}{0}", color[0]), NumberStyles.HexNumber) / 255.0);
-                    float g = (float)(byte.Parse(string.Format("{0}{0}", color[1]), NumberStyles.HexNumber) / 255.0);
-                    float b = (float)(byte.Parse(string.Format("{0}{0}", color[2]), NumberStyles.HexNumber) / 255.0);
+                    float r = (float)(byte.Parse(string.Format(CultureInfo.CurrentCulture,"{0}{0}", color[0]), NumberStyles.HexNumber, CultureInfo.CurrentCulture) / 255.0);
+                    float g = (float)(byte.Parse(string.Format(CultureInfo.CurrentCulture,"{0}{0}", color[1]), NumberStyles.HexNumber, CultureInfo.CurrentCulture) / 255.0);
+                    float b = (float)(byte.Parse(string.Format(CultureInfo.CurrentCulture,"{0}{0}", color[2]), NumberStyles.HexNumber, CultureInfo.CurrentCulture) / 255.0);
                     return new SvgColor(r, g, b);
                 }
 
                 if (color.Length == 6)
                 {
-                    float r = (float)(byte.Parse(color.Substring(0, 2), NumberStyles.HexNumber) / 255.0);
-                    float g = (float)(byte.Parse(color.Substring(2, 2), NumberStyles.HexNumber) / 255.0);
-                    float b = (float)(byte.Parse(color.Substring(4, 2), NumberStyles.HexNumber) / 255.0);
+                    float r = (float)(byte.Parse(color.AsSpan(0, 2), NumberStyles.HexNumber, CultureInfo.CurrentCulture) / 255.0);
+                    float g = (float)(byte.Parse(color.AsSpan(2, 2), NumberStyles.HexNumber, CultureInfo.CurrentCulture) / 255.0);
+                    float b = (float)(byte.Parse(color.AsSpan(4, 2), NumberStyles.HexNumber, CultureInfo.CurrentCulture) / 255.0);
                     return new SvgColor(r, g, b);
                 }
             }
 
-            if (value.StartsWith("rgb"))
+            if (value.StartsWith("rgb",StringComparison.CurrentCulture))
             {
                 string color = value.Substring(3).Trim();
                 if (color.StartsWith('(') && color.EndsWith(')'))
@@ -74,25 +74,25 @@ namespace XamlIconViewer.SVG
                             r = (float)(Double.Parse(components[0], CultureInfo.InvariantCulture.NumberFormat) / 100.0);
                         }
                         else
-                            r = (float)(byte.Parse(components[0]) / 255.0);
+                            r = (float)(byte.Parse(components[0],CultureInfo.CurrentCulture) / 255.0);
 
                         components[1] = components[1].Trim();
-                        if (components[1].EndsWith("%"))
+                        if (components[1].EndsWith("%", StringComparison.CurrentCulture))
                         {
                             components[1] = components[1].Substring(0, components[1].Length - 1).Trim();
                             g = (float)(Double.Parse(components[1], CultureInfo.InvariantCulture.NumberFormat) / 100.0);
                         }
                         else
-                            g = (float)(byte.Parse(components[1]) / 255.0);
+                            g = (float)(byte.Parse(components[1], CultureInfo.CurrentCulture) / 255.0);
 
                         components[2] = components[1].Trim();
-                        if (components[2].EndsWith("%"))
+                        if (components[2].EndsWith("%", StringComparison.CurrentCulture))
                         {
                             components[2] = components[2].Substring(0, components[2].Length - 1).Trim();
                             b = (float)(Double.Parse(components[2], CultureInfo.InvariantCulture.NumberFormat) / 100.0);
                         }
                         else
-                            b = (float)(byte.Parse(components[2]) / 255.0);
+                            b = (float)(byte.Parse(components[2], CultureInfo.CurrentCulture) / 255.0);
 
                         return new SvgColor(r, g, b);
                     }
@@ -139,7 +139,7 @@ namespace XamlIconViewer.SVG
                     return new SvgColor((float)(0 / 255.0), (float)(255 / 255.0), (float)(255 / 255.0));
             }
 
-            throw new ArgumentException(String.Format("Unsupported color value: {0}", value));
+            throw new ArgumentException(string.Format(CultureInfo.CurrentCulture,"Unsupported color value: {0}", value));
 
         }
 

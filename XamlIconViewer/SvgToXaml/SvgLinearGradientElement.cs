@@ -8,7 +8,7 @@ namespace XamlIconViewer.SVG
     /// <summary>
     ///   Represents a &lt;linearGradient&gt; element.
     /// </summary>
-    internal class SvgLinearGradientElement : SvgGradientBaseElement
+    internal sealed class SvgLinearGradientElement : SvgGradientBaseElement
     {
         public readonly SvgCoordinate X1 = new SvgCoordinate(0);
         public readonly SvgCoordinate Y1 = new SvgCoordinate(0);

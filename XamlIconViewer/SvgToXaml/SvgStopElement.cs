@@ -5,7 +5,7 @@ namespace XamlIconViewer.SVG
     using System.Windows.Media;
     using System.Xml.Linq;
 
-    internal class SvgStopElement : SvgBaseElement
+    internal sealed class SvgStopElement : SvgBaseElement
     {
         public readonly SvgLength Offset = new SvgLength(0);
         public readonly SvgColor Color = new SvgColor(0, 0, 0);

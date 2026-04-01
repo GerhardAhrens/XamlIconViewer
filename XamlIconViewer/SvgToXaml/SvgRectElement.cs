@@ -8,7 +8,7 @@ namespace XamlIconViewer.SVG
     /// <summary>
     ///   Represents a &lt;rect&gt; element.
     /// </summary>
-    internal class SvgRectElement : SvgDrawableBaseElement
+    internal sealed class SvgRectElement : SvgDrawableBaseElement
     {
         public readonly SvgCoordinate X = new SvgCoordinate(0.0);
         public readonly SvgCoordinate Y = new SvgCoordinate(0.0);

@@ -5,7 +5,7 @@
     /// <summary>
     ///   Represents a &lt;defs&gt; element.
     /// </summary>
-    internal class SvgDefsElement : SvgContainerBaseElement
+    internal sealed class SvgDefsElement : SvgContainerBaseElement
     {
         public SvgDefsElement(SvgDocument document, SvgBaseElement parent, XElement defsElement)
           : base(document, parent, defsElement)

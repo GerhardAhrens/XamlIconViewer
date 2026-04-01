@@ -5,10 +5,11 @@ namespace XamlIconViewer.SVG
     using System.Globalization;
     using System.Windows.Media;
 
-    internal class SvgTranslateTransform : SvgTransform
+    internal sealed class SvgTranslateTransform : SvgTransform
     {
         public readonly double X;
         public readonly double Y;
+        internal static readonly char[] separator = new char[] { ' ', '\t', ',' };
 
         public SvgTranslateTransform(double x, double y)
         {
@@ -23,7 +24,7 @@ namespace XamlIconViewer.SVG
 
         public static new SvgTranslateTransform Parse(string transform)
         {
-            string[] tokens = transform.Split(new char[] { ' ', '\t', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] tokens = transform.Split(separator, StringSplitOptions.RemoveEmptyEntries);
             if (tokens.Length != 2)
                 throw new FormatException("A translate transformation must have two values");
 

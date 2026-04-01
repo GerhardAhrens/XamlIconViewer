@@ -8,7 +8,7 @@ namespace XamlIconViewer.SVG
     /// <summary>
     ///   Represents a &lt;clipPath&gt; element.
     /// </summary>
-    internal class SvgClipPathElement : SvgContainerBaseElement
+    internal sealed class SvgClipPathElement : SvgContainerBaseElement
     {
         public SvgClipPathElement(SvgDocument document, SvgBaseElement parent, XElement clipPathElement)
           : base(document, parent, clipPathElement)

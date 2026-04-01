@@ -23,11 +23,11 @@ namespace XamlIconViewer.SVG
 
         public static SvgLength Parse(string value)
         {
-            if (value == null)
-                throw new ArgumentNullException("value");
+            ArgumentNullException.ThrowIfNull(value);
+
             value = value.Trim();
             if (value == "")
-                throw new ArgumentException("value must not be empty", "value");
+                throw new ArgumentException("value must not be empty", nameof(value));
 
             if (value == "inherit")
                 return new SvgLength(Double.NaN, null);
@@ -35,7 +35,7 @@ namespace XamlIconViewer.SVG
             string unit = null;
 
             foreach (string unit_identifier in new string[] { "in", "cm", "mm", "pt", "pc", "px", "%" })
-                if (value.EndsWith(unit_identifier))
+                if (value.EndsWith(unit_identifier,StringComparison.CurrentCulture))
                 {
                     unit = unit_identifier;
                     value = value.Substring(0, value.Length - unit_identifier.Length).Trim();

@@ -6,7 +6,7 @@
     /// <summary>
     ///   Represents an &lt;feGaussianBlur&gt; element.
     /// </summary>
-    internal class SvgFEGaussianBlurElement : SvgFilterEffectBaseElement
+    internal sealed class SvgFEGaussianBlurElement : SvgFilterEffectBaseElement
     {
         public readonly SvgLength StdDeviation = new SvgLength(1.0);
 

@@ -5,9 +5,10 @@ namespace XamlIconViewer.SVG
     using System.Globalization;
     using System.Windows.Media;
 
-    internal class SvgRotateTransform : SvgTransform
+    internal sealed class SvgRotateTransform : SvgTransform
     {
         public readonly double Angle;
+        internal static readonly char[] separator = new char[] { ' ', '\t', ',' };
 
         public SvgRotateTransform(double angle)
         {
@@ -21,7 +22,7 @@ namespace XamlIconViewer.SVG
 
         public static new SvgRotateTransform Parse(string transform)
         {
-            string[] tokens = transform.Split(new char[] { ' ', '\t', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] tokens = transform.Split(separator, StringSplitOptions.RemoveEmptyEntries);
 
             if (tokens.Length == 1)
                 return new SvgRotateTransform(Double.Parse(tokens[0].Trim(), CultureInfo.InvariantCulture.NumberFormat));

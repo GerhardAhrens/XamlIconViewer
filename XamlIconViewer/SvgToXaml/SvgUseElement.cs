@@ -27,7 +27,7 @@ namespace XamlIconViewer.SVG
     /// <summary>
     ///   Represents an &lt;use&gt; element.
     /// </summary>
-    internal class SvgUseElement : SvgBaseElement
+    internal sealed class SvgUseElement : SvgBaseElement
     {
         public SvgUseElement(SvgDocument document, SvgBaseElement parent, XElement useElement)
           : base(document, parent, useElement)
@@ -41,9 +41,9 @@ namespace XamlIconViewer.SVG
                 throw new NotSupportedException();
             }
 
-            if (Document.Elements.ContainsKey(Reference))
+            if (Document.Elements.TryGetValue(Reference, out var element))
             {
-                return Document.Elements[Reference];
+                return element;
             }
             else
             {

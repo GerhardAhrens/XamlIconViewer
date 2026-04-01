@@ -5,7 +5,7 @@
     /// <summary>
     ///   A paint with a solid color.
     /// </summary>
-    internal class SvgColorPaint : SvgPaint
+    internal sealed class SvgColorPaint : SvgPaint
     {
         public readonly SvgColor Color;
 

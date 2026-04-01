@@ -6,7 +6,7 @@
     /// <summary>
     ///   Represents an &lt;feBlend&gt; element.
     /// </summary>
-    internal class SvgFEBlendElement : SvgFilterEffectBaseElement
+    internal sealed class SvgFEBlendElement : SvgFilterEffectBaseElement
     {
 
         public SvgFEBlendElement(SvgDocument document, SvgBaseElement parent, XElement feBlendElement)

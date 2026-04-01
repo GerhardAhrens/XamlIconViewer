@@ -8,7 +8,7 @@ namespace XamlIconViewer.SVG
     /// <summary>
     ///   Represents an &lt;circle&gt; element.
     /// </summary>
-    internal class SvgCircleElement : SvgDrawableBaseElement
+    internal sealed class SvgCircleElement : SvgDrawableBaseElement
     {
         /// <summary>
         ///   The x-coordinate of the circle's center.
@@ -29,16 +29,23 @@ namespace XamlIconViewer.SVG
           : base(document, parent, circleElement)
         {
             XAttribute cx_attribute = circleElement.Attribute("cx");
+
             if (cx_attribute != null)
+            {
                 CenterX = SvgCoordinate.Parse(cx_attribute.Value);
+            }
 
             XAttribute cy_attribute = circleElement.Attribute("cy");
             if (cy_attribute != null)
+            {
                 CenterY = SvgCoordinate.Parse(cy_attribute.Value);
+            }
 
             XAttribute r_attribute = circleElement.Attribute("r");
             if (r_attribute != null)
+            {
                 Radius = SvgLength.Parse(r_attribute.Value);
+            }
         }
 
         public override Geometry GetBaseGeometry()

@@ -6,7 +6,7 @@ namespace XamlIconViewer.SVG
     /// <summary>
     ///   Represents a &lt;marker&gt; element.
     /// </summary>
-    internal class SvgMarkerElement : SvgContainerBaseElement
+    internal sealed class SvgMarkerElement : SvgContainerBaseElement
     {
         public SvgMarkerElement(SvgDocument document, SvgBaseElement parent, XElement markerElement)
           : base(document, parent, markerElement)

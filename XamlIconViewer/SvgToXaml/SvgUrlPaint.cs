@@ -24,7 +24,7 @@ namespace XamlIconViewer.SVG
     using System;
     using System.Windows.Media;
 
-    internal class SvgUrlPaint : SvgPaint
+    internal sealed class SvgUrlPaint : SvgPaint
     {
         public readonly string Url;
 
@@ -35,12 +35,11 @@ namespace XamlIconViewer.SVG
 
         public override Brush ToBrush(SvgBaseElement element)
         {
-            if (!element.Document.Elements.ContainsKey(Url))
+            if (!element.Document.Elements.TryGetValue(Url, out SvgBaseElement reference))
             {
                 return null;
             }
 
-            SvgBaseElement reference = element.Document.Elements[Url];
             if (reference is SvgGradientBaseElement)
             {
                 return (reference as SvgGradientBaseElement).ToBrush();

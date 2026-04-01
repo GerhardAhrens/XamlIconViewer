@@ -5,13 +5,13 @@ namespace XamlIconViewer.SVG
     using System.Windows.Media;
     using System.Xml.Linq;
 
-    internal class SvgRadialGradientElement : SvgGradientBaseElement
+    internal sealed class SvgRadialGradientElement : SvgGradientBaseElement
     {
         public readonly SvgCoordinate CX = new SvgCoordinate(0.5);
         public readonly SvgCoordinate CY = new SvgCoordinate(0.5);
         public readonly SvgLength R = new SvgCoordinate(0.5);
-        public readonly SvgCoordinate FX = null;
-        public readonly SvgCoordinate FY = null;
+        public readonly SvgCoordinate FX;
+        public readonly SvgCoordinate FY;
 
         public SvgRadialGradientElement(SvgDocument document, SvgBaseElement parent, XElement radialGradientElement)
           : base(document, parent, radialGradientElement)

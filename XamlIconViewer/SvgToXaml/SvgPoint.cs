@@ -3,7 +3,7 @@ namespace XamlIconViewer.SVG
 {
     using System.Windows;
 
-    internal class SvgPoint
+    internal sealed class SvgPoint
     {
 
         public readonly double X;

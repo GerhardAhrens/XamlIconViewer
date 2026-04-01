@@ -6,7 +6,7 @@ namespace XamlIconViewer.SVG
     /// <summary>
     ///   Represents a &lt;foreignObject&gt; element.
     /// </summary>
-    internal class SvgForeignObjectElement : SvgDrawableContainerBaseElement
+    internal sealed class SvgForeignObjectElement : SvgDrawableContainerBaseElement
     {
 
         public SvgForeignObjectElement(SvgDocument document, SvgBaseElement parent, XElement foreignObjectElement)

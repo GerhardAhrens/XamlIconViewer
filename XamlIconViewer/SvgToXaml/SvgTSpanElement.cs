@@ -26,7 +26,7 @@ namespace XamlIconViewer.SVG
     /// <summary>
     ///   Represents a &lt;tspan&gt; element.
     /// </summary>
-    internal class SvgTSpanElement : SvgDrawableContainerBaseElement
+    internal sealed class SvgTSpanElement : SvgDrawableContainerBaseElement
     {
 
         public SvgTSpanElement(SvgDocument document, SvgBaseElement parent, XElement svgElement)

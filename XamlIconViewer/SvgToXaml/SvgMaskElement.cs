@@ -2,6 +2,7 @@
 namespace XamlIconViewer.SVG
 {
     using System;
+    using System.Globalization;
     using System.Windows;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
@@ -10,7 +11,7 @@ namespace XamlIconViewer.SVG
     /// <summary>
     ///   Represents a &lt;mask&gt; element.
     /// </summary>
-    internal class SvgMaskElement : SvgContainerBaseElement
+    internal sealed class SvgMaskElement : SvgContainerBaseElement
     {
         public readonly SvgMaskUnits MaskUnits = SvgMaskUnits.ObjectBoundingBox;
 
@@ -30,7 +31,7 @@ namespace XamlIconViewer.SVG
                         break;
 
                     default:
-                        throw new NotImplementedException(String.Format("maskUnits value '{0}' is no supported", mask_units_attribute.Value));
+                        throw new NotImplementedException(string.Format(CultureInfo.CurrentCulture,"maskUnits value '{0}' is no supported", mask_units_attribute.Value));
                 }
         }
 

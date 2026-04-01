@@ -6,7 +6,7 @@ namespace XamlIconViewer.SVG
     /// <summary>
     ///   Represents a &lt;switch&gt; element.
     /// </summary>
-    internal class SvgSwitchElement : SvgContainerBaseElement
+    internal sealed class SvgSwitchElement : SvgContainerBaseElement
     {
         public SvgSwitchElement(SvgDocument document, SvgBaseElement parent, XElement svgElement)
           : base(document, parent, svgElement)

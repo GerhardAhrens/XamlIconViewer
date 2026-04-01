@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
     using System.Windows.Media.Effects;
     using System.Xml.Linq;
@@ -9,7 +10,7 @@
     /// <summary>
     ///   Represents a &lt;filter&gt; element.
     /// </summary>
-    internal class SvgFilterElement : SvgBaseElement
+    internal sealed class SvgFilterElement : SvgBaseElement
     {
         public readonly List<SvgFilterEffectBaseElement> FilterEffects = new List<SvgFilterEffectBaseElement>();
 
@@ -35,7 +36,7 @@
                         break;
 
                     default:
-                        throw new NotImplementedException(String.Format("Unhandled element: {0}", element));
+                        throw new NotImplementedException(string.Format(CultureInfo.CurrentCulture, "Unhandled element: {0}", element));
                 }
 
         }
@@ -43,7 +44,9 @@
         public BitmapEffect ToBitmapEffect()
         {
             if (Document.Options.IgnoreEffects)
+            {
                 return null;
+            }
 
             BitmapEffectGroup bitmap_effect_group = new BitmapEffectGroup();
 
@@ -51,11 +54,15 @@
             {
                 BitmapEffect bitmap_effect = filter_effect.ToBitmapEffect();
                 if (bitmap_effect != null)
+                {
                     bitmap_effect_group.Children.Add(bitmap_effect);
+                }
             }
 
             if (bitmap_effect_group.Children.Count == 0)
+            {
                 return null;
+            }
 
             return bitmap_effect_group;
         }

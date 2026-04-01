@@ -7,7 +7,7 @@
     /// <summary>
     ///   Represents a &lt;flowRegíon&gt; element.
     /// </summary>
-    internal class SvgFlowRegionElement : SvgDrawableContainerBaseElement
+    internal sealed class SvgFlowRegionElement : SvgDrawableContainerBaseElement
     {
 
         public SvgFlowRegionElement(SvgDocument document, SvgBaseElement parent, XElement flowRegionElement)

@@ -14,8 +14,8 @@ namespace XamlIconViewer.SVG
     /// </summary>
     public class SvgImageExtension : MarkupExtension
     {
-        private Uri m_Uri = null;
-        private bool m_IgnoreEffects = false;
+        private Uri m_Uri;
+        private bool m_IgnoreEffects;
 
         /// <summary>
         ///   Initializes a new <see cref="SvgImageExtension"/> instance.

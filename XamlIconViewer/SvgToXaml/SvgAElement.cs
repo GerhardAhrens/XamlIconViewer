@@ -23,7 +23,7 @@ namespace XamlIconViewer.SVG
 {
     using System.Xml.Linq;
 
-    internal class SvgAElement : SvgDrawableContainerBaseElement
+    internal sealed class SvgAElement : SvgDrawableContainerBaseElement
     {
         public SvgAElement(SvgDocument document, SvgBaseElement parent, XElement aElement) : base(document, parent, aElement)
         {

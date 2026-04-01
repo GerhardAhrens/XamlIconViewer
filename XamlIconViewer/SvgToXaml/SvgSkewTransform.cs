@@ -5,10 +5,11 @@ namespace XamlIconViewer.SVG
     using System.Globalization;
     using System.Windows.Media;
 
-    internal class SvgSkewTransform : SvgTransform
+    internal sealed class SvgSkewTransform : SvgTransform
     {
         public readonly double AngleX;
         public readonly double AngleY;
+        internal static readonly char[] separator = new char[] { ' ', '\t', ',' };
 
         public SvgSkewTransform(double angleX, double angleY)
         {
@@ -23,7 +24,7 @@ namespace XamlIconViewer.SVG
 
         public static new SvgSkewTransform Parse(string transform)
         {
-            string[] tokens = transform.Split(new char[] { ' ', '\t', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] tokens = transform.Split(separator, StringSplitOptions.RemoveEmptyEntries);
             if (tokens.Length != 2)
                 throw new FormatException("A skew transformation must have two values");
 

@@ -5,7 +5,7 @@ namespace XamlIconViewer.SVG
     using System.Globalization;
     using System.Windows.Media;
 
-    internal class SvgMatrixTransform : SvgTransform
+    internal sealed class SvgMatrixTransform : SvgTransform
     {
         public readonly double M11;
         public readonly double M12;
@@ -13,6 +13,7 @@ namespace XamlIconViewer.SVG
         public readonly double M22;
         public readonly double OffsetX;
         public readonly double OffsetY;
+        internal static readonly char[] separator = new char[] { ' ', '\t', ',' };
 
         public SvgMatrixTransform(double m11, double m12, double m21, double m22, double offsetX, double offsetY)
         {
@@ -31,7 +32,7 @@ namespace XamlIconViewer.SVG
 
         public static new SvgMatrixTransform Parse(string transform)
         {
-            string[] tokens = transform.Split(new char[] { ' ', '\t', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] tokens = transform.Split(separator, StringSplitOptions.RemoveEmptyEntries);
             if (tokens.Length == 6)
                 return new SvgMatrixTransform(Double.Parse(tokens[0].Trim(), CultureInfo.InvariantCulture.NumberFormat),
                                               Double.Parse(tokens[1].Trim(), CultureInfo.InvariantCulture.NumberFormat),
@@ -40,7 +41,7 @@ namespace XamlIconViewer.SVG
                                               Double.Parse(tokens[4].Trim(), CultureInfo.InvariantCulture.NumberFormat),
                                               Double.Parse(tokens[5].Trim(), CultureInfo.InvariantCulture.NumberFormat));
 
-            throw new ArgumentException();
+            throw new ArgumentException($"Parameter {transform} entspricht nicht 'tokens.Length == 6'");
         }
     }
 }

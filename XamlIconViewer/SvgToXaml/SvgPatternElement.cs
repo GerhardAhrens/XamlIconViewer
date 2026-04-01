@@ -2,18 +2,19 @@
 namespace XamlIconViewer.SVG
 {
     using System;
+    using System.Globalization;
     using System.Windows.Media;
     using System.Xml.Linq;
 
     /// <summary>
     ///   Represents a &lt;pattern&gt; element.
     /// </summary>
-    internal class SvgPatternElement : SvgDrawableContainerBaseElement
+    internal sealed class SvgPatternElement : SvgDrawableContainerBaseElement
     {
-        public readonly SvgTransform PatternTransform = null;
+        public readonly SvgTransform PatternTransform;
         public readonly SvgPatternUnits PatternUnits = SvgPatternUnits.ObjectBoundingBox;
-        public readonly SvgLength Width = null;
-        public readonly SvgLength Height = null;
+        public readonly SvgLength Width;
+        public readonly SvgLength Height;
 
         public SvgPatternElement(SvgDocument document, SvgBaseElement parent, XElement patternElement)
           : base(document, parent, patternElement)
@@ -35,7 +36,7 @@ namespace XamlIconViewer.SVG
                         break;
 
                     default:
-                        throw new NotImplementedException(String.Format("patternUnits value '{0}' is no supported", pattern_units_attribute.Value));
+                        throw new NotImplementedException(string.Format(CultureInfo.CurrentCulture, "patternUnits value '{0}' is no supported", pattern_units_attribute.Value));
                 }
 
             XAttribute width_attribute = patternElement.Attribute("width");
@@ -48,7 +49,6 @@ namespace XamlIconViewer.SVG
 
         }
 
-        //==========================================================================
         public DrawingBrush ToBrush()
         {
             DrawingBrush brush = null;

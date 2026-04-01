@@ -1,12 +1,14 @@
-﻿
-namespace XamlIconViewer.SVG
+﻿namespace XamlIconViewer.SVG
 {
     using System;
     using System.Globalization;
     using System.Windows.Media;
 
-    internal class SvgScaleTransform : SvgTransform
+    internal sealed class SvgScaleTransform : SvgTransform
     {
+        // Wiederverwendbares statisches Array vermeiden wiederholte Allokationen
+        private static readonly char[] s_splitChars = new[] { ' ', '\t', ',' };
+
         public readonly double X;
         public readonly double Y;
 
@@ -29,7 +31,7 @@ namespace XamlIconViewer.SVG
 
         public static new SvgScaleTransform Parse(string transform)
         {
-            string[] tokens = transform.Split(new char[] { ' ', '\t', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] tokens = transform.Split(s_splitChars, StringSplitOptions.RemoveEmptyEntries);
 
             if (tokens.Length == 1)
                 return new SvgScaleTransform(Double.Parse(tokens[0].Trim(), CultureInfo.InvariantCulture.NumberFormat));

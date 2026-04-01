@@ -7,7 +7,7 @@
     /// <summary>
     ///   Represents a &lt;flowRoot&gt; element.
     /// </summary>
-    internal class SvgFlowRootElement : SvgDrawableContainerBaseElement
+    internal sealed class SvgFlowRootElement : SvgDrawableContainerBaseElement
     {
         public readonly SvgFlowRegionElement FlowRegion;
 

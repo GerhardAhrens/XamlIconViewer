@@ -5,7 +5,7 @@
     /// <summary>
     ///   Represents a &lt;flowPara&gt; element.
     /// </summary>
-    internal class SvgFlowParaElement : SvgDrawableContainerBaseElement
+    internal sealed class SvgFlowParaElement : SvgDrawableContainerBaseElement
     {
 
         public SvgFlowParaElement(SvgDocument document, SvgBaseElement parent, XElement flowParaElement)
